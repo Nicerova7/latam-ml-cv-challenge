@@ -1,3 +1,22 @@
+########################################
+# DATASETS (no datasets)
+########################################
 data/
+
+########################################
+# TRAINING CHECKPOINTS
+# ignore all .pt by default except the curated final artifact
+########################################
 *.pt
-artifacts/
+!artifacts/model_best.pt
+
+# keep only metadata files
+# ignore train/val batch visualizations
+challenge/runs/detect/**/train_batch*.jpg
+challenge/runs/detect/**/val_batch*.jpg
+
+########################################
+# EDITOR / OS NOISE
+########################################
+.DS_Store
+*.ipynb_checkpoints/

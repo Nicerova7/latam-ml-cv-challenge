@@ -23,7 +23,7 @@ jobs:
       - name: Install system dependencies
         run: |
           apt-get update
-          apt-get install -y make gcc
+          apt-get install -y make gcc libglib2.0-0 libgl1 libopencv-core-dev
 
       - name: Install dependencies
         run: |

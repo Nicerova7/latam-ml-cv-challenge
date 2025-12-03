@@ -6,3 +6,4 @@ coverage~=7.5
 pytest-cov~=5.0
 # Mocks
 mockito~=1.4
+httpx~=0.28.1

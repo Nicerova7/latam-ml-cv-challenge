@@ -1,9 +1,4 @@
 ########################################
-# DATASETS (no datasets)
-########################################
-data/
-
-########################################
 # TRAINING CHECKPOINTS
 # ignore all .pt by default except the curated final artifact
 ########################################
@@ -40,4 +35,3 @@ junit.xml
 reports/
 .pytest_cache/
 .venv/
-data/

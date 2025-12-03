@@ -1,0 +1,13 @@
+train: ../../data/train/images
+val: ../../data/valid/images
+test: ../../data/test/images
+
+nc: 17
+names: ['car', 'cardboard box', 'forklift', 'freight container', 'gloves', 'helmet', 'ladder', 'license plate', 'person', 'qr code', 'road sign', 'safety vest', 'traffic cone', 'traffic light', 'truck', 'van', 'wood pallet']
+
+roboflow:
+  workspace: srafil-ar
+  project: forklift-6ms6v
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/srafil-ar/forklift-6ms6v/dataset/1

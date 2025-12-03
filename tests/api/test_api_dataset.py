@@ -37,8 +37,11 @@ def test_api_recall_on_subset(test_images, yolo_labels):
             pytest.skip("The API was started without weights. Exiting with skip.")
         dets = resp.json()["detections"]
 
-        lbl_path = img_path.replace(
-            os.sep + "images" + os.sep, os.sep + "labels" + os.sep
+        # folder labels use .txt, not .jpg
+        lbl_path = (
+            img_path
+            .replace(os.sep + "images" + os.sep, os.sep + "labels" + os.sep)
+            .rsplit(".", 1)[0] + ".txt"
         )
         gts = yolo_labels(lbl_path)
 

@@ -3,14 +3,26 @@ import glob
 import yaml
 import random
 import pytest
+from pathlib import Path
 
-DATA_YAML_PATH = "../data/data.yaml"
+# Note: I could have created a separate test-specific YAML, 
+# but normalizing paths in code keeps everything consistent without duplicating config files.
+BASE_DIR = Path(__file__).resolve().parent  # we are in tests/ directory
+DATA_YAML_PATH = (BASE_DIR / "../data/data.yaml").resolve()
 
 
 def _load_data_cfg():
     assert os.path.exists(DATA_YAML_PATH)
     with open(DATA_YAML_PATH, "r") as f:
-        return yaml.safe_load(f)
+        data_cfg = yaml.safe_load(f)
+
+    # --- normalize paths inside the YAML ---
+    base_dir = Path(DATA_YAML_PATH).resolve().parent # we are in data/
+    for key in ("train", "val", "test"):
+        if key in data_cfg and isinstance(data_cfg[key], str): # check it's a path
+            data_cfg[key] = (base_dir / data_cfg[key]).resolve().as_posix()
+
+    return data_cfg
 
 
 def _collect_split_images(img_dir: str):

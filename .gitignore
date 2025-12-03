@@ -1,3 +1,37 @@
-data/
+########################################
+# TRAINING CHECKPOINTS
+# ignore all .pt by default except the curated final artifact
+########################################
 *.pt
-artifacts/
+# Allow the best model artifact
+!challenge/artifacts/model_best.pt
+# allow the artifacts folder
+!challenge/artifacts/
+
+
+# keep only metadata files
+# ignore train/val batch visualizations
+challenge/runs/detect/**/train_batch*.jpg
+challenge/runs/detect/**/val_batch*.jpg
+
+########################################
+# EDITOR / OS NOISE
+########################################
+.DS_Store
+*.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment (WSL)
+.venv/
+
+.coverage
+coverage.xml
+junit.xml
+reports/
+.pytest_cache/
+.venv/

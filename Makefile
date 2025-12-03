@@ -23,7 +23,7 @@ install:		## Install dependencies
 	pip install -r requirements-test.txt
 	pip install -r requirements.txt
 
-API_URL = http://127.0.0.1:8000 
+API_URL = https://yolo11-api-111036914172.us-central1.run.app
 .PHONY: model-test
 model-test:			## Run tests and coverage
 	mkdir reports || true
